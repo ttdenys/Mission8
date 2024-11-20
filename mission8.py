@@ -17,6 +17,7 @@ class Duree :
         Par exemple, une durée de 8h 41m 25s compte 31285 secondes.
         """
         return (float(self.h)*3600)+(float(self.m)*60+float(self.s))#We add hours and minutes to the seconds
+    
     def delta(self,d) :
         """
         @pre:  d est une instance de la classe Duree
@@ -32,6 +33,7 @@ class Duree :
         self.d=d
         difference = self.to_secondes()-self.d.to_secondes()
         return difference
+    
     def apres(self,d):
         """
         @pre:  d est une instance de la classe Duree
@@ -42,6 +44,7 @@ class Duree :
             return True
         else:
             return False
+        
     def ajouter(self,d):
         """
         @pre:  d est une instance de la classe Duree
@@ -61,6 +64,7 @@ class Duree :
 
 
         return ("{:02}:{:02}:{:02}".format(self.h, self.m, self.s))
+    
     def format_correction(self):
         """
         This is meant to convert a duration, contained in self, to a one that actually repsects the format.
@@ -85,7 +89,6 @@ class Duree :
                 self.h+=(int(self.m)//60)
                 self.m-=(int(self.m)//60)*60
             conditions=[isinstance(self.h , int), isinstance(self.m,int), isinstance(self.s,int), self.s<60, self.m<60] # Condition are True if format is correct
-
     
     def __str__(self):
         """
