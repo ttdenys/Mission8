@@ -30,8 +30,10 @@ class Duree :
         Inversement, si cette durée (self) est 0h 1m 25s et la durée
         d est 8h 41m 25s, alors la valeur retournée est -31200.
         """
-        self.d=d.to_secondes()
-        difference = self.to_secondes()-self.d
+        self.d=d
+
+
+        difference = self.to_secondes()-self.d.to_secondes()
         return difference
     
     def apres(self,d):
@@ -55,7 +57,13 @@ class Duree :
             (60 secondes = 1 minute, 60 minutes = 1 heure).
             Ne retourne pas une nouvelle durée mais modifié la durée self.
         """
-        self.d=d.to_secondes
+        total_seconds = self.to_secondes() + d.to_secondes()
+        self.h = int(total_seconds // 3600)
+        remaining_seconds = total_seconds % 3600
+        self.m = int(remaining_seconds // 60)
+        self.s = int(remaining_seconds % 60)
+        self.format_correction()
+
 
         return ("{:02}:{:02}:{:02}".format(self.h, self.m, self.s))
     
@@ -92,7 +100,7 @@ class Duree :
         retourne le string désiré avec les nombres en deux chiffres en ajoutant
         les zéros nécessaires.
         """
-        self.ajouter(Duree(self.h,self.m,self.s))
+        self.format_correction()
         return ("{:02}:{:02}:{:02}".format(self.h, self.m, self.s))
 #DUREE OK
 test1=Duree(5,64,22)
