@@ -30,8 +30,6 @@ class Duree :
         d est 8h 41m 25s, alors la valeur retournée est -31200.
         """
         self.d=d
-
-
         difference = self.to_secondes()-self.d.to_secondes()
         return difference
     def apres(self,d):
@@ -134,7 +132,7 @@ class Chanson :
             Par exemple: "Let's_Dance - David_Bowie - 00:04:05"
         """
 
-        return f"{self.t.upper} - {self.a.upper} - {self.d}"
+        return f"{self.t} - {self.a} - {self.d}"
 
 class Album :
     def __init__(self, numero):
@@ -168,7 +166,7 @@ class Album :
             print(i)
             for j in range(len((self.album[i].split("-")))): #Format for 0x not x needed + adding dashes betwwen elements
                 l=self.album[i]
-                print("t",l[j],l[j+1],l[j+2])
+                print("t",l[j],l[j+1],l[j+2  ])
                 j+=2
         return str(self.album)
 
