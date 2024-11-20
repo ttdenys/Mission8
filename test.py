@@ -92,7 +92,7 @@ d0 = Duree(0, 0, 0)
 d1 = Duree(10, 20, 59)
 d2 = Duree(8, 41, 25)
 c = Chanson("Let's Dance", "David Bowie", Duree(0, 4, 5))
-album = Album("Album 1")
+album1 = Album("Album 1")
 chanson1 = Chanson("Let's Dance", "David Bowie", Duree(0, 4, 5))
 chanson2 = Chanson("Space Oddity", "David Bowie", Duree(0, 5, 15))
 
@@ -129,14 +129,14 @@ def test_Chanson_str():
 
 
 def test_Album_str():
-    album.add(chanson1)
-    album.add(chanson2)
-    assert album.__str__() == "Album 1\nChansons:\nLet's Dance - David Bowie (Durée: 04:05)\nSpace Oddity - David Bowie (Durée: 05:15)\n", "Test 1 Album __str__"
+    album1.add(chanson1)
+    album1.add(chanson2)
+    assert album1.__str__() == "Album 1\nChansons:\nLet's Dance - David Bowie (Durée: 04:05)\nSpace Oddity - David Bowie (Durée: 05:15)\n", "Test 1 Album __str__"
 
 
 def test_Album_add():
-    album.add(Chanson("Heroes", "David Bowie", Duree(0, 6, 30)))
-    assert len(album.chansons) == 3, "Test 1 Album add"
+    album1.add(Chanson("Heroes", "David Bowie", Duree(0, 6, 30)))
+    assert len(album1.chansons) == 3, "Test 1 Album add"
 
 
 def run_tests():
@@ -150,4 +150,3 @@ def run_tests():
     test_Album_add()
 
     print("Tous les tests ont réussi!")
-
